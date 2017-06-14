@@ -46,8 +46,8 @@ var bio = {
       $("#header").append(HTMLskillsStart);
       bio.skills.forEach(function(skill) {
         var formattedSkill = HTMLskills.replace("%data%", skill);
-        $("#skills").append(formattedSkill)
-      })
+        $("#skills").append(formattedSkill);
+      });
     }
   }
 };
@@ -89,8 +89,8 @@ var work = {
       var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
       var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
       // Append to section
-      $(".work-entry:last").append(formattedEmployerTitle, formattedDates, formattedLocation, formattedDescription)
-    })
+      $(".work-entry:last").append(formattedEmployerTitle, formattedDates, formattedLocation, formattedDescription);
+    });
   }
 };
 
@@ -111,18 +111,18 @@ var projects = {
     }
   ],
   "display" : function() {
-    for (project in projects.projects) {
+    for (var project in projects.projects) {
       $("#projects").append(HTMLprojectStart);
       var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
       var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
       var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-      if (projects.projects[project].images.length != 0) {
-        for (i = projects.projects[project].images.length; i > 0; i--) {
+      if (projects.projects[project].images.length !== 0) {
+        for (var i = projects.projects[project].images.length; i > 0; i--) {
           var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[i-1]);
-          $(".project-entry:last").append(formattedImage)
+          $(".project-entry:last").append(formattedImage);
         }
-      };
-      $(".project-entry:last").prepend(formattedTitle, formattedDates, formattedDescription)
+      }
+      $(".project-entry:last").prepend(formattedTitle, formattedDates, formattedDescription);
     }
   }
 };
@@ -172,12 +172,12 @@ var education = {
       // Format and append the majors to the entry
       school.majors.forEach(function(major) {
         var formattedMajor = HTMLschoolMajor.replace("%data%", major);
-        $(".education-entry:last").append(formattedMajor)
-      })
+        $(".education-entry:last").append(formattedMajor);
+      });
     });
 
     // Add online courses if there's anything in the array
-    if (education.onlineCourses.length != 0) {
+    if (education.onlineCourses.length !== 0) {
       $("#education").append(HTMLonlineClasses);
       // Attach the objects
       education.onlineCourses.forEach(function(course) {
@@ -185,8 +185,8 @@ var education = {
         var formattedTitleSchool = HTMLonlineTitle.replace("%data%", course.title) + HTMLonlineSchool.replace("%data%", course.school);
         var formattedDates = HTMLonlineDates.replace("%data%", course.dates);
         var formattedURL = HTMLonlineURL.replace("%data%", course.url);
-        $(".education-entry:last").append(formattedTitleSchool, formattedDates, formattedURL)
-      })
+        $(".education-entry:last").append(formattedTitleSchool, formattedDates, formattedURL);
+      });
     }
   }
 };
