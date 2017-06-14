@@ -15,7 +15,6 @@ var bio = {
    "github": "gabosaurio",
    "location": "CDMX"
  },
- "biopic": "images/me.png",
  "welcomeMsg": "Sitios y apps para potenciar tu valor.",
  "skills": [
    "Diseño y desarrollo de sitios",
@@ -23,6 +22,7 @@ var bio = {
    "Marketing digital",
    "Optimización de procesos"
  ],
+ "biopic": "images/me.png",
  "display": function() {
    // Format and display name and role
    var formattedName = HTMLheaderName.replace("%data%", bio.name);
