@@ -15,7 +15,7 @@ var bio = {
    "github": "gabosaurio",
    "location": "CDMX"
  },
- "welcomeMsg": "Sitios y apps para potenciar tu valor.",
+ "welcomeMessage": "Sitios y apps para potenciar tu valor.",
  "skills": [
    "Diseño y desarrollo de sitios",
    "Cursos y capacitaciones",
@@ -28,7 +28,7 @@ var bio = {
    var formattedName = HTMLheaderName.replace("%data%", bio.name);
    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
    var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
-   var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
+   var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
    $("#header").prepend(formattedName, formattedRole);
    // Name and role before "contacts" container, picture, message and skills after.
    $("#header").append(formattedPic, formattedWelcomeMsg);
@@ -38,8 +38,7 @@ var bio = {
    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-   $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
-   $("#footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+   $("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
 
     // Format and display skills if the array is not empty
     if (bio.skills.length !== 0) {
@@ -111,42 +110,42 @@ var projects = {
     }
   ],
   "display" : function() {
-    for (var project in projects.projects) {
+    projects.projects.forEach(function(project) {
       $("#projects").append(HTMLprojectStart);
-      var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-      var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-      var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-      if (projects.projects[project].images.length !== 0) {
-        for (var i = projects.projects[project].images.length; i > 0; i--) {
-          var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[i-1]);
+      var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
+      var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
+      var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
+      if (project.images.length !== 0) {
+        for (var i = project.images.length; i > 0; i--) {
+          var formattedImage = HTMLprojectImage.replace("%data%", project.images[i-1]);
           $(".project-entry:last").append(formattedImage);
         }
       }
       $(".project-entry:last").prepend(formattedTitle, formattedDates, formattedDescription);
-    }
+    });
   }
-};
+}
 
 var education = {
   "schools": [
     {
       "name": "Tecnológico de Monterrey",
       "degree": "Ingeniería",
-      "dates": 2015,
+      "dates": "2015",
       "location": "Santa Fe, CDMX",
       "majors": ["Industrial y de Sistemas"]
     },
     {
       "name": "Universidad Iberoamericana",
       "degree": "Diplomado",
-      "dates": 2014,
+      "dates": "2014",
       "location": "Santa Fe, CDMX",
       "majors": ["Diseño y desarrollo de comunidades y ciudades sostenibles"]
     },
     {
       "name": "Universidad de Tecnología de Troyes",
       "degree": "Especialización",
-      "dates": 2014,
+      "dates": "2014",
       "location": "Troyes, Francia",
       "majors": ["Logística"]
     }
@@ -155,7 +154,7 @@ var education = {
     {
       "title": "Desarrollador Web",
       "school": "Udacity",
-      "dates": 2014,
+      "dates": "2014",
       "url": "https://classroom.udacity.com/nanodegrees/nd001/"
     }
   ],
