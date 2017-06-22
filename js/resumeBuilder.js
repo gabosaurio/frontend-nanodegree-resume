@@ -124,7 +124,7 @@ var projects = {
       $(".project-entry:last").prepend(formattedTitle, formattedDates, formattedDescription);
     });
   }
-}
+};
 
 var education = {
   "schools": [
